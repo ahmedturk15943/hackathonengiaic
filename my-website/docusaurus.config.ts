@@ -14,10 +14,9 @@ const config: Config = {
   url: 'https://your-vercel-or-github-pages-url.com',
   baseUrl: '/',
 
-  organizationName: 'ahmedturk15943', // GitHub username
-  projectName: 'hackathonengiaic',    // Repository name
+  organizationName: 'ahmedturk15943',
+  projectName: 'hackathonengiaic',
 
-  // Temporary fix to allow build to pass despite broken links
   onBrokenLinks: 'ignore',
   onBrokenMarkdownLinks: 'warn',
 
@@ -46,30 +45,17 @@ const config: Config = {
   ],
 
   themeConfig: {
-    image: 'img/docusaurus-social-card.jpg',
+    image: 'img/social-card-physical-ai.jpg',
     colorMode: {
       respectPrefersColorScheme: true,
     },
     navbar: {
-      title: 'Physical AI & Humanoid Robotics',
+      title: 'Hackathon Robotics Book',
       logo: {
-        alt: 'Hackathon Logo',
-        src: 'img/logo.svg',
+        alt: 'Physical AI & Humanoid Robotics Logo',
+        src: 'img/robotics-logo.svg',
       },
       items: [
-        {
-          type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
-          position: 'left',
-          label: 'Tutorial',
-        },
-        {
-          type: 'docSidebar',
-          sidebarId: 'physicalAiHumanoidRobotics',
-          position: 'left',
-          label: 'Physical AI & Humanoid Robotics',
-        },
-        {to: '/blog', label: 'Blog', position: 'left'},
         {
           href: 'https://github.com/ahmedturk15943/hackathonengiaic',
           label: 'GitHub',
@@ -102,7 +88,7 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Hackathon Team. Built with Docusaurus.`,
+      copyright: `Copyright © 2025 Ahmed Raza Turk.`,
     },
     prism: {
       theme: prismThemes.github,

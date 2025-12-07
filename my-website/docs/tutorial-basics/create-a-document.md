@@ -2,56 +2,31 @@
 sidebar_position: 2
 ---
 
-# Create a Document
+# Physical AI & Robotics Modules
 
-Documents are **groups of pages** connected through:
+Modules in this textbook are **organized groups of content** connected through:
 
-- a **sidebar**
-- **previous/next navigation**
-- **versioning**
+- a **structured curriculum**
+- **sequential learning paths**
+- **integrated concepts**
 
-## Create your first Doc
+## Understanding Module Organization
 
-Create a Markdown file at `docs/hello.md`:
+Each module covers a specific aspect of Physical AI and Humanoid Robotics:
 
-```md title="docs/hello.md"
-# Hello
+- Fundamental principles and theoretical foundations
+- Mathematical models and equations
+- Practical implementation examples
+- Simulation exercises and projects
+- Research case studies and applications
 
-This is my **first Docusaurus document**!
-```
+## Navigating the Curriculum
 
-A new document is now available at [http://localhost:3000/docs/hello](http://localhost:3000/docs/hello).
+The textbook modules are organized to provide a comprehensive learning journey:
 
-## Configure the Sidebar
+1. Start with foundational concepts in early modules
+2. Progress through increasingly advanced topics
+3. Apply knowledge through hands-on projects
+4. Explore cutting-edge research and applications
 
-Docusaurus automatically **creates a sidebar** from the `docs` folder.
-
-Add metadata to customize the sidebar label and position:
-
-```md title="docs/hello.md" {1-4}
----
-sidebar_label: 'Hi!'
-sidebar_position: 3
----
-
-# Hello
-
-This is my **first Docusaurus document**!
-```
-
-It is also possible to create your sidebar explicitly in `sidebars.js`:
-
-```js title="sidebars.js"
-export default {
-  tutorialSidebar: [
-    'intro',
-    // highlight-next-line
-    'hello',
-    {
-      type: 'category',
-      label: 'Tutorial',
-      items: ['tutorial-basics/create-a-document'],
-    },
-  ],
-};
-```
+Each module builds upon previous knowledge while maintaining the flexibility to dive into specific topics of interest.

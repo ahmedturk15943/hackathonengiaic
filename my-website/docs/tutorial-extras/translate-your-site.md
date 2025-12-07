@@ -2,87 +2,35 @@
 sidebar_position: 2
 ---
 
-# Translate your site
+# Multi-Disciplinary Perspectives
 
-Let's translate `docs/intro.md` to French.
+Explore Physical AI & Humanoid Robotics from various specialized perspectives.
 
-## Configure i18n
+## Different Viewpoints
 
-Modify `docusaurus.config.js` to add support for the `fr` locale:
+Multiple specialized approaches to understanding robotics:
 
-```js title="docusaurus.config.js"
-export default {
-  i18n: {
-    defaultLocale: 'en',
-    locales: ['en', 'fr'],
-  },
-};
-```
+- Mathematical foundations and theoretical frameworks
+- Engineering implementation and practical applications
+- Cognitive science and bio-inspired approaches
+- Ethics and societal impact considerations
 
-## Translate a doc
+## Specialized Tracks
 
-Copy the `docs/intro.md` file to the `i18n/fr` folder:
+Each track provides a different lens for understanding the material:
 
-```bash
-mkdir -p i18n/fr/docusaurus-plugin-content-docs/current/
+- **Mathematical Track**: Mathematical models, proofs, and quantitative analysis
+- **Engineering Track**: Implementation details, system design, and practical solutions
+- **Cognitive Track**: Biological inspiration, neural models, and learning systems
+- **Social Track**: Human-robot interaction, ethics, and societal implications
 
-cp docs/intro.md i18n/fr/docusaurus-plugin-content-docs/current/intro.md
-```
+Each perspective offers valuable insights into different aspects of Physical AI and humanoid robotics.
 
-Translate `i18n/fr/docusaurus-plugin-content-docs/current/intro.md` in French.
+## Integrating Perspectives
 
-## Start your localized site
+Advanced understanding comes from combining multiple viewpoints:
 
-Start your site on the French locale:
-
-```bash
-npm run start -- --locale fr
-```
-
-Your localized site is accessible at [http://localhost:3000/fr/](http://localhost:3000/fr/) and the `Getting Started` page is translated.
-
-:::caution
-
-In development, you can only use one locale at a time.
-
-:::
-
-## Add a Locale Dropdown
-
-To navigate seamlessly across languages, add a locale dropdown.
-
-Modify the `docusaurus.config.js` file:
-
-```js title="docusaurus.config.js"
-export default {
-  themeConfig: {
-    navbar: {
-      items: [
-        // highlight-start
-        {
-          type: 'localeDropdown',
-        },
-        // highlight-end
-      ],
-    },
-  },
-};
-```
-
-The locale dropdown now appears in your navbar:
-
-![Locale Dropdown](./img/localeDropdown.png)
-
-## Build your localized site
-
-Build your site for a specific locale:
-
-```bash
-npm run build -- --locale fr
-```
-
-Or build your site to include all the locales at once:
-
-```bash
-npm run build
-```
+- Mathematical foundations enable robust implementations
+- Engineering insights inform practical applications
+- Cognitive approaches inspire novel solutions
+- Ethical considerations guide responsible development

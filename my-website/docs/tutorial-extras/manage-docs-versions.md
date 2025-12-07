@@ -2,54 +2,32 @@
 sidebar_position: 1
 ---
 
-# Manage Docs Versions
+# Research & Development Modules
 
-Docusaurus can manage multiple versions of your docs.
+This textbook provides access to multiple levels of content depth and research areas.
 
-## Create a docs version
+## Module Progression
 
-Release a version 1.0 of your project:
+Advance through increasingly sophisticated concepts:
 
-```bash
-npm run docusaurus docs:version 1.0
-```
+- Start with fundamental Physical AI principles
+- Progress to advanced humanoid robotics implementations
+- Explore cutting-edge research applications
 
-The `docs` folder is copied into `versioned_docs/version-1.0` and `versions.json` is created.
+## Research Tracks
 
-Your docs now have 2 versions:
+The textbook offers different learning paths:
 
-- `1.0` at `http://localhost:3000/docs/` for the version 1.0 docs
-- `current` at `http://localhost:3000/docs/next/` for the **upcoming, unreleased docs**
+- **Foundation Track**: Core concepts and essential skills
+- **Implementation Track**: Hands-on projects and code examples
+- **Research Track**: Advanced algorithms and current studies
 
-## Add a Version Dropdown
+Each track builds upon previous knowledge with increasing complexity and specialization.
 
-To navigate seamlessly across versions, add a version dropdown.
+## Updating Your Knowledge
 
-Modify the `docusaurus.config.js` file:
+As the field of Physical AI and humanoid robotics advances, new modules and updates are regularly added:
 
-```js title="docusaurus.config.js"
-export default {
-  themeConfig: {
-    navbar: {
-      items: [
-        // highlight-start
-        {
-          type: 'docsVersionDropdown',
-        },
-        // highlight-end
-      ],
-    },
-  },
-};
-```
-
-The docs version dropdown appears in your navbar:
-
-![Docs Version Dropdown](./img/docsVersionDropdown.png)
-
-## Update an existing version
-
-It is possible to edit versioned docs in their respective folder:
-
-- `versioned_docs/version-1.0/hello.md` updates `http://localhost:3000/docs/hello`
-- `docs/hello.md` updates `http://localhost:3000/docs/next/hello`
+- Foundational modules provide stable core knowledge
+- Advanced modules reflect current research and techniques
+- Case studies showcase the latest breakthrough implementations

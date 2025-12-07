@@ -2,42 +2,32 @@
 sidebar_position: 1
 ---
 
-# Create a Page
+# Explore Physical AI Concepts
 
-Add **Markdown or React** files to `src/pages` to create a **standalone page**:
+Access **Physical AI and Humanoid Robotics** content through structured learning modules:
 
-- `src/pages/index.js` → `localhost:3000/`
-- `src/pages/foo.md` → `localhost:3000/foo`
-- `src/pages/foo/bar.js` → `localhost:3000/foo/bar`
+- Core concepts are organized in progressive learning paths
+- Each module builds upon previous knowledge with practical applications
+- Use the sidebar to navigate between different topics and subtopics
 
-## Create your first React Page
+## Understanding Physical AI Principles
 
-Create a file at `src/pages/my-react-page.js`:
+Each concept in Physical AI builds upon fundamental robotics and AI principles:
 
-```jsx title="src/pages/my-react-page.js"
-import React from 'react';
-import Layout from '@theme/Layout';
+- **Embodied Cognition**: How physical form influences intelligence
+- **Sensorimotor Learning**: Learning through interaction with the environment
+- **Dynamics & Control**: Motion planning and robot control systems
+- **Perception-Action Coupling**: Connecting sensing with action
 
-export default function MyReactPage() {
-  return (
-    <Layout>
-      <h1>My React page</h1>
-      <p>This is a React page</p>
-    </Layout>
-  );
-}
-```
+Explore these foundational principles through the structured curriculum.
 
-A new page is now available at [http://localhost:3000/my-react-page](http://localhost:3000/my-react-page).
+## Engaging with Humanoid Robotics
 
-## Create your first Markdown Page
+Humanoid robotics combines multiple advanced fields:
 
-Create a file at `src/pages/my-markdown-page.md`:
+- Biomechanics and anthropomorphic design
+- Balance and locomotion control
+- Human-robot interaction protocols
+- Multi-modal perception systems
 
-```mdx title="src/pages/my-markdown-page.md"
-# My Markdown page
-
-This is a Markdown page
-```
-
-A new page is now available at [http://localhost:3000/my-markdown-page](http://localhost:3000/my-markdown-page).
+Each concept includes theoretical foundations and practical implementation examples.

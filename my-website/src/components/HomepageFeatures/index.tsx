@@ -11,29 +11,29 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Easy to Build & Learn',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    title: 'Fundamentals First',
+    Svg: require('@site/static/img/physical-ai-concept.svg').default,
     description: (
       <>
-        Quickly explore modules and learn Physical AI & Humanoid Robotics concepts while building practical skills.
+        Master foundational concepts in Physical AI and robotics with step-by-step learning modules designed for progressive skill development.
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    title: 'Hands-On Projects',
+    Svg: require('@site/static/img/humanoid-robotics.svg').default,
     description: (
       <>
-           Focus on learning Physical AI & Humanoid Robotics — the platform handles the setup, so you can dive straight into the modules.
+        Apply theoretical knowledge through practical projects building and programming humanoid robots with simulated and real environments.
       </>
     ),
   },
   {
-    title: 'Powered by React',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    title: 'Cutting-Edge Techniques',
+    Svg: require('@site/static/img/ai-brain-processing.svg').default,
     description: (
       <>
-            Extend or customize your textbook platform for Physical AI & Humanoid Robotics projects, while keeping the same header and footer for consistency.
+        Explore advanced algorithms and techniques used in state-of-the-art Physical AI and humanoid robotics implementations.
       </>
     ),
   },

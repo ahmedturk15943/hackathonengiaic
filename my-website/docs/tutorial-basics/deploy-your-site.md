@@ -2,15 +2,15 @@
 sidebar_position: 5
 ---
 
-# Deploy your site
+# Accessing the Textbook
 
-Docusaurus is a **static-site-generator** (also called **[Jamstack](https://jamstack.org/)**).
+The Physical AI & Humanoid Robotics textbook is delivered as a **static educational platform**.
 
-It builds your site as simple **static HTML, JavaScript and CSS files**.
+It provides **static HTML, JavaScript and CSS files** for optimal accessibility and performance.
 
-## Build your site
+## Building the Textbook Locally
 
-Build your site **for production**:
+Generate your local copy of the textbook:
 
 ```bash
 npm run build
@@ -18,14 +18,14 @@ npm run build
 
 The static files are generated in the `build` folder.
 
-## Deploy your site
+## Serving the Textbook Locally
 
-Test your production build locally:
+Test your local textbook build:
 
 ```bash
 npm run serve
 ```
 
-The `build` folder is now served at [http://localhost:3000/](http://localhost:3000/).
+The textbook will be available at [http://localhost:3000/](http://localhost:3000/).
 
-You can now deploy the `build` folder **almost anywhere** easily, **for free** or very small cost (read the **[Deployment Guide](https://docusaurus.io/docs/deployment)**).
+This local version allows for offline study and reference of the Physical AI & Humanoid Robotics content.

@@ -2,33 +2,21 @@
 sidebar_position: 3
 ---
 
-# Create a Blog Post
+# Research Papers & Case Studies
 
-Docusaurus creates a **page for each blog post**, but also a **blog index page**, a **tag system**, an **RSS** feed...
+The textbook includes **research papers and case studies** that demonstrate:
 
-## Create your first Post
+- **Real-world applications** of Physical AI and Humanoid Robotics
+- **Current research trends** and breakthrough implementations
+- **Technical documentation** for advanced algorithms
 
-Create a file at `blog/2021-02-28-greetings.md`:
+## Exploring Case Studies
 
-```md title="blog/2021-02-28-greetings.md"
----
-slug: greetings
-title: Greetings!
-authors:
-  - name: Joel Marcey
-    title: Co-creator of Docusaurus 1
-    url: https://github.com/JoelMarcey
-    image_url: https://github.com/JoelMarcey.png
-  - name: Sébastien Lorber
-    title: Docusaurus maintainer
-    url: https://sebastienlorber.com
-    image_url: https://github.com/slorber.png
-tags: [greetings]
----
+Each case study presents:
 
-Congratulations, you have made your first post!
+- Problem statement and objectives
+- Technical approach and methodology
+- Implementation details and results
+- Lessons learned and future directions
 
-Feel free to play around and edit this post as much as you like.
-```
-
-A new blog post is now available at [http://localhost:3000/blog/greetings](http://localhost:3000/blog/greetings).
+These resources provide deeper insights into how theoretical concepts are applied in actual robotics systems and research projects.
