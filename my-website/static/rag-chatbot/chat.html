@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Physical AI & Humanoid Robotics Assistant</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+
+    body {
+      background-color: #f5f7fb;
+      color: #333;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .chat-container {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      max-height: 100%;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+
+    .chat-header {
+      background: #3498db;
+      color: white;
+      padding: 15px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .chat-messages {
+      flex: 1;
+      overflow-y: auto;
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      background-color: #f9f9f9;
+    }
+
+    .message {
+      max-width: 80%;
+      padding: 10px 15px;
+      border-radius: 18px;
+      line-height: 1.4;
+      position: relative;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .user-message {
+      align-self: flex-end;
+      background-color: #3498db;
+      color: white;
+      border-bottom-right-radius: 4px;
+    }
+
+    .assistant-message {
+      align-self: flex-start;
+      background-color: #e5e5ea;
+      color: #333;
+      border-bottom-left-radius: 4px;
+    }
+
+    .sources {
+      margin-top: 5px;
+      font-size: 0.8em;
+      color: #666;
+    }
+
+    .sources summary {
+      cursor: pointer;
+      color: #3498db;
+    }
+
+    .typing-indicator {
+      align-self: flex-start;
+      background-color: #e5e5ea;
+      color: #333;
+      padding: 10px 15px;
+      border-radius: 18px;
+      display: inline-flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .typing-dot {
+      width: 8px;
+      height: 8px;
+      background-color: #666;
+      border-radius: 50%;
+      margin: 0 2px;
+      animation: typing 1.4s infinite ease-in-out;
+    }
+
+    .typing-dot:nth-child(1) { animation-delay: 0s; }
+    .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+    .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+    @keyframes typing {
+      0%, 60%, 100% { transform: translateY(0); }
+      30% { transform: translateY(-5px); }
+    }
+
+    .chat-input-container {
+      padding: 15px;
+      background: white;
+      border-top: 1px solid #eee;
+      display: flex;
+      gap: 10px;
+    }
+
+    #message-input {
+      flex: 1;
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+      border-radius: 24px;
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+
+    #message-input:focus {
+      border-color: #3498db;
+      box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+    }
+
+    #send-button {
+      background: #3498db;
+      color: white;
+      border: none;
+      border-radius: 24px;
+      padding: 12px 20px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+
+    #send-button:hover {
+      background: #2980b9;
+    }
+
+    #send-button:disabled {
+      background: #bdc3c7;
+      cursor: not-allowed;
+    }
+
+    .error-message {
+      color: #e74c3c;
+      font-size: 0.9em;
+      margin-top: 5px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="chat-container">
+    <div class="chat-header">
+      Physical AI & Humanoid Robotics Assistant
+    </div>
+    
+    <div class="chat-messages" id="chat-messages">
+      <div class="message assistant-message">
+        Hello! I'm your Physical AI & Humanoid Robotics assistant. Ask me anything about the textbook content.
+      </div>
+    </div>
+    
+    <div class="chat-input-container">
+      <input 
+        type="text" 
+        id="message-input" 
+        placeholder="Ask about Physical AI & Humanoid Robotics..." 
+        autocomplete="off"
+      >
+      <button id="send-button">Send</button>
+    </div>
+    
+    <div id="error-message" class="error-message"></div>
+  </div>
+
+  <script>
+    // Configuration
+    const BACKEND_URL = 'http://localhost:8000/api/v1'; // Default, can be changed
+    let conversationId = null;
+
+    // DOM Elements
+    const chatMessages = document.getElementById('chat-messages');
+    const messageInput = document.getElementById('message-input');
+    const sendButton = document.getElementById('send-button');
+    const errorMessage = document.getElementById('error-message');
+
+    // Add a message to the chat
+    function addMessage(role, content, sources = null) {
+      const messageDiv = document.createElement('div');
+      messageDiv.classList.add('message');
+      messageDiv.classList.add(role === 'user' ? 'user-message' : 'assistant-message');
+      
+      if (role === 'assistant' && sources && sources.length > 0) {
+        messageDiv.innerHTML = content + `
+          <div class="sources">
+            <details>
+              <summary>Sources</summary>
+              <ul>
+                ${sources.map(source => 
+                  `<li>${source.filename || source.relative_path || source.title || 'Source'}</li>`
+                ).join('')}
+              </ul>
+            </details>
+          </div>
+        `;
+      } else {
+        messageDiv.textContent = content;
+      }
+      
+      chatMessages.appendChild(messageDiv);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    // Show typing indicator
+    function showTypingIndicator() {
+      const typingDiv = document.createElement('div');
+      typingDiv.classList.add('typing-indicator');
+      typingDiv.id = 'typing-indicator';
+      typingDiv.innerHTML = `
+        <div class="typing-dot"></div>
+        <div class="typing-dot"></div>
+        <div class="typing-dot"></div>
+      `;
+      chatMessages.appendChild(typingDiv);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    // Hide typing indicator
+    function hideTypingIndicator() {
+      const typingIndicator = document.getElementById('typing-indicator');
+      if (typingIndicator) {
+        typingIndicator.remove();
+      }
+    }
+
+    // Show error message
+    function showError(message) {
+      errorMessage.textContent = message;
+      setTimeout(() => {
+        errorMessage.textContent = '';
+      }, 5000);
+    }
+
+    // Send message to backend
+    async function sendMessage() {
+      const message = messageInput.value.trim();
+      if (!message) return;
+
+      // Add user message to UI
+      addMessage('user', message);
+      messageInput.value = '';
+      sendButton.disabled = true;
+      showTypingIndicator();
+
+      try {
+        // Send request to backend
+        const response = await fetch(BACKEND_URL + '/chat', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            message: message,
+            conversation_id: conversationId,
+            top_k: 5
+          })
+        });
+
+        if (!response.ok) {
+          throw new Error(`Server error: ${response.status}`);
+        }
+
+        const data = await response.json();
+
+        // Update conversation ID if new conversation
+        if (data.conversation_id && !conversationId) {
+          conversationId = data.conversation_id;
+        }
+
+        // Hide typing indicator and add assistant response
+        hideTypingIndicator();
+        addMessage('assistant', data.response, data.sources || []);
+      } catch (error) {
+        console.error('Error:', error);
+        hideTypingIndicator();
+        addMessage('assistant', "Sorry, there was an error processing your request. Please try again.");
+        showError(`Error: ${error.message}`);
+      } finally {
+        sendButton.disabled = false;
+        messageInput.focus();
+      }
+    }
+
+    // Event listeners
+    sendButton.addEventListener('click', sendMessage);
+
+    messageInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        sendMessage();
+      }
+    });
+
+    // Focus input on load
+    messageInput.focus();
+  </script>
+</body>
+</html>

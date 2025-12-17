@@ -1,0 +1,63 @@
+/* CSS for the navbar chatbot */
+#custom-chatbot-root {
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.navbar-chatbot-button {
+  background: #3498db;
+  border: none;
+  border-radius: 18px;
+  padding: 6px 12px;
+  cursor: pointer;
+  color: white;
+  font-size: 14px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  position: relative;
+  z-index: 101;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-chatbot-button:hover {
+  background: #2980b9;
+}
+
+.navbar-chatbot-button.active {
+  background: #2980b9;
+}
+
+.chatbot-dropdown {
+  position: fixed;
+  top: 60px;
+  right: 20px;
+  width: 350px;
+  z-index: 100;
+  background-color: white;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.chatbot-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #3498db;
+  color: white;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.chatbot-close-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.chatbot-iframe-container {
+  padding: 10px;
+}

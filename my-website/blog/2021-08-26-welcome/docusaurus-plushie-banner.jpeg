@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <rect width="800" height="400" fill="#25c2a0"/>
+  <circle cx="400" cy="150" r="40" fill="#ffffff"/>
+  <rect x="360" y="190" width="80" height="50" rx="8" fill="#ffffff"/>
+  <path d="M300 250 L260 320 L300 320 Z M500 250 L540 320 L500 320 Z" fill="#ffffff"/>
+  <rect x="300" y="320" width="200" height="30" rx="5" fill="#ffffff"/>
+  <circle cx="340" cy="340" r="8" fill="#0a7c5d"/>
+  <circle cx="460" cy="340" r="8" fill="#0a7c5d"/>
+  <path d="M370 130 L350 110 L390 110 Z M430 130 L410 110 L450 110 Z" fill="#0a7c5d"/>
+  <text x="400" y="80" text-anchor="middle" fill="#ffffff" font-family="Arial" font-size="32" font-weight="bold">Physical AI & Humanoid Robotics</text>
+  <text x="400" y="370" text-anchor="middle" fill="#ffffff" font-family="Arial" font-size="20">Welcome to the Future of Robotics Education</text>
+</svg>
